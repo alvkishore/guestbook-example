@@ -1,16 +1,16 @@
 guestbook:
-  image: guestbook
+  image: 046080496858.dkr.ecr.us-east-1.amazonaws.com/kishore-repo:guestbook
   ports:
     - 3000:3000
   links:
     - redismaster:redis-master
     - redisslave:redis-slave
 redismaster:
-  image: redis:2.8.19
+  image: 046080496858.dkr.ecr.us-east-1.amazonaws.com/kishore-repo:redis
   ports:
     - 3001:6379
 redisslave:
-  image: kubernetes/redis-slave:v2
+  image: 046080496858.dkr.ecr.us-east-1.amazonaws.com/kishore-repo:kube
   links:
     - redismaster:redis-master
   ports:
